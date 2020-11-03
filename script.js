@@ -283,3 +283,52 @@
 
 // mike.calcAge = john.calcAge;
 // mike.calcAge();
+
+
+/***********
+ * Destructuring arrays
+ */
+
+// const arr = [2, 3, 4,];
+
+// const [x, y, z] = arr;
+// console.log(x, y, z)
+
+// const nested = [2, 4, [5, 6]];
+
+// const [i, , j] = nested;
+
+// console.log(i, j);
+// console.log(nested);
+
+/***********
+ * Destructuring objects
+ */
+
+// let a = 123;
+// let b = 456;
+// const obj = { a: 23, b: 7, c: 90 };
+
+// console.log(a, b);
+// ({ a, b } = obj);
+// console.log(a, b);
+
+// Nested objects
+
+/***************
+ * Spread operator
+ */
+
+// const arr = [7, 8, 9];
+// const newArr = [1, 2, arr[0], arr[1], arr[2]];
+// console.log(newArr);
+
+// const newArr2 = [1, 2, ...arr];
+// console.log(newArr2);
+
+// Iterables: arrays, strings, maps, sets. NOT OBJECTS
+
+// const str = 'Daesung';
+// const letters = [...str, ' ', 'C'];
+// console.log(letters);
+// console.log(...str);
