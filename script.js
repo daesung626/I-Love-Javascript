@@ -332,3 +332,27 @@
 // const letters = [...str, ' ', 'C'];
 // console.log(letters);
 // console.log(...str);
+
+/************
+ * Rest patterns
+ */
+
+// const add = function (...numbers) {
+//     let sum = 0;
+//     for (let i = 0; i < numbers.length; i++) {
+//         sum += numbers[i];
+//     }
+//     console.log(sum);
+// }
+
+// add(5, 2, 6, 9, 5, 2);
+
+// const x = [23, 5, 7];
+// add(...x);
+
+/*****************
+ * Short circuiting
+ */
+
+// console.log(0 || 23 || 'Hello');
+// console.log(0 && 23 && 'Hello');
