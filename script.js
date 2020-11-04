@@ -356,3 +356,243 @@
 
 // console.log(0 || 23 || 'Hello');
 // console.log(0 && 23 && 'Hello');
+
+/**********
+ * Optional chaining
+ */
+
+// const users = [
+//     {
+//         name: 'Daesung',
+//         email: 'daesungchoi626@gmail.com',
+//         age: 23
+//     }
+// ]
+
+// console.log(users[0]?.name ?? 'User array empty');
+
+/*************
+ * Coding challenge 9.2
+ */
+
+/*
+Let's continue with our football betting app!
+
+1. Loop over the game.scored array and print each player name to the console, along with the goal number (Example: "Goal 1: Lewandowski")
+2. Use a loop to calculate the average odd and log it to the console (We already studied how to calculate averages, you can go check if you don't remember)
+3. Print the 3 odds to the console, but in a nice formatted way, exaclty like this:
+      Odd of victory Bayern Munich: 1.33
+      Odd of draw: 3.25
+      Odd of victory Borrussia Dortmund: 6.5
+Get the team names directly from the game object, don't hardcode them (except for "draw"). HINT: Note how the odds and the game objects have the same property names 😉
+
+BONUS: Create an object called 'scorers' which contains the names of the players who scored as properties, and the number of goals as the value. In this game, it will look like this:
+      {
+        Gnarby: 1,
+        Hummels: 1,
+        Lewandowski: 2
+      }
+
+GOOD LUCK 😀
+*/
+
+/*
+const game = {
+    team1: 'Bayern Munich',
+    team2: 'Borrussia Dortmund',
+    players: [
+        [
+            'Neuer',
+            'Pavard',
+            'Martinez',
+            'Alaba',
+            'Davies',
+            'Kimmich',
+            'Goretzka',
+            'Coman',
+            'Muller',
+            'Gnarby',
+            'Lewandowski',
+        ],
+        [
+            'Burki',
+            'Schulz',
+            'Hummels',
+            'Akanji',
+            'Hakimi',
+            'Weigl',
+            'Witsel',
+            'Hazard',
+            'Brandt',
+            'Sancho',
+            'Gotze',
+        ],
+    ],
+    score: '4:0',
+    scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+    date: 'Nov 9th, 2037',
+    odds: {
+        team1: 1.33,
+        x: 3.25,
+        team2: 6.5,
+    },
+};
+*/
+
+/*
+// 1.
+for (const [i, player] of game.scored.entries())
+    console.log(`Goal ${i + 1}: ${player}`);
+
+// 2.
+const odds = Object.values(game.odds);
+let average = 0;
+for (const odd of odds) average += odd;
+average /= odds.length;
+console.log(average);
+
+// 3.
+for (const [team, odd] of Object.entries(game.odds)) {
+    const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+    console.log(`Odd of ${teamStr} ${odd}`);
+}
+
+// Odd of victory Bayern Munich: 1.33
+// Odd of draw: 3.25
+// Odd of victory Borrussia Dortmund: 6.5
+
+// BONUS
+// So the solution is to loop over the array, and add the array elements as object properties, and then increase the count as we encounter a new occurence of a certain element
+const scorers = {};
+for (const player of game.scored) {
+    scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+}
+console.log(scorers);
+*/
+
+/**************
+ * Sets
+ */
+
+// const orderSet = new Set(['Pasta', 'Pizza', 'Raviolli', 'Cheese', 'Pizza', 'Pizza', 'Pasta']);
+
+// console.log(orderSet);
+
+// console.log(orderSet.has('Pasta'));
+// console.log(orderSet.has('Bread'));
+
+// orderSet.add('Garlic Bread');
+// console.log(orderSet);
+
+// orderSet.delete('Cheese');
+// console.log(orderSet);
+
+// for (const order of orderSet) console.log(order);
+
+// Example
+
+// const staff = ['Waiter', 'Chef', 'Chef', 'Waiter', 'Chef', 'Manager'];
+
+// const staffUnique = [...new Set(staff)];
+// console.log(staffUnique);
+
+/*************
+ * Maps
+ */
+
+// const rest = new Map();
+
+// rest.set('name', 'Olive Garden');
+// rest.set(1, 'Irvine');
+// rest.set(2, 'Los Angeles');
+
+// console.log(rest);
+
+// console.log(rest.get('name'));
+
+
+/************
+ * What data structure do i use?
+ */
+
+/*
+Arrays : Whenever you need to store values in order (might contain duplicates) and when you need to manipulate data
+
+Sets : When you need to work with UNIQUE values and to remove duplicates
+*/
+
+/*
+Objects : When you need to include functions (methods) and when working with JSON
+
+Maps : When you need a key and value.
+*/
+
+/***********
+ * Coding challenge 9.3
+ */
+
+/*
+Let's continue with our football betting app! This time, we have a map with a log of the events that happened during the game. The values are the events themselves, and the keys are the minutes in which each event happened (a football game has 90 minutes plus some extra time).
+
+1. Create an array 'events' of the different game events that happened (no duplicates)
+2. After the game has finished, is was found that the yellow card from minute 64 was unfair. So remove this event from the game events log.
+3. Print the following string to the console: "An event happened, on average, every 9 minutes" (keep in mind that a game has 90 minutes)
+4. Loop over the events and log them to the console, marking whether it's in the first half or second half (after 45 min) of the game, like this:
+     [FIRST HALF] 17: ⚽️ GOAL
+
+GOOD LUCK 😀
+*/
+
+// const gameEvents = new Map([
+//     [17, '⚽️ GOAL'],
+//     [36, '🔁 Substitution'],
+//     [47, '⚽️ GOAL'],
+//     [61, '🔁 Substitution'],
+//     [64, '🔶 Yellow card'],
+//     [69, '🔴 Red card'],
+//     [70, '🔁 Substitution'],
+//     [72, '🔁 Substitution'],
+//     [76, '⚽️ GOAL'],
+//     [80, '⚽️ GOAL'],
+//     [92, '🔶 Yellow card'],
+// ]);
+
+// const events = [...new Set(gameEvents.values())];
+// console.log(events);
+
+// gameEvents.delete(64);
+// console.log(gameEvents);
+
+// console.log(`An event happened, on average, every ${90 / gameEvents.size} minutes`);
+
+// const time = [...gameEvents.keys()].pop();
+// console.log(time);
+// console.log(`An event happened, on average, every ${time / gameEvents.size} minutes`);
+
+// for (const [min, event] of gameEvents) {
+//     const half = min <= 45 ? 'FIRST' : 'SECOND';
+//     console.log(`[${half} HALF] ${min}: ${event}`);
+// }
+
+/**************
+ * Strings
+ */
+
+const airline = 'Korean Air';
+console.log(airline.slice(7, 9));
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(-3));
+
+const checkMiddleSeat = function (seat) {
+    // B and E are middle seats
+    const s = seat.slice(-1);
+    if (s === 'B' || s === 'E') {
+        console.log('You got middle seat')
+    } else {
+        console.log('Not middle')
+    }
+}
+
+checkMiddleSeat('11B');
+checkMiddleSeat('11A');
+checkMiddleSeat('11E');
