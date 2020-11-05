@@ -578,21 +578,54 @@ GOOD LUCK 😀
  * Strings
  */
 
-const airline = 'Korean Air';
-console.log(airline.slice(7, 9));
-console.log(airline.slice(0, airline.indexOf(' ')));
-console.log(airline.slice(-3));
+// const airline = 'Korean Air';
+// console.log(airline.slice(7, 9));
+// console.log(airline.slice(0, airline.indexOf(' ')));
+// console.log(airline.slice(-3));
 
-const checkMiddleSeat = function (seat) {
-    // B and E are middle seats
-    const s = seat.slice(-1);
-    if (s === 'B' || s === 'E') {
-        console.log('You got middle seat')
-    } else {
-        console.log('Not middle')
-    }
+// const checkMiddleSeat = function (seat) {
+//     // B and E are middle seats
+//     const s = seat.slice(-1);
+//     if (s === 'B' || s === 'E') {
+//         console.log('You got middle seat')
+//     } else {
+//         console.log('Not middle')
+//     }
+// }
+
+// checkMiddleSeat('11B');
+// checkMiddleSeat('11A');
+// checkMiddleSeat('11E');
+
+// Comparing
+
+// const email = 'daesungchoi626@gmail.com';
+// const loginEmail = ' DaesungChoi626@gmail.com \n';
+
+// const fixedEmail = loginEmail.toLowerCase().trim();
+// console.log(fixedEmail);
+// console.log(fixedEmail === email);
+
+// Split and joint
+
+console.log('Daesung Choi'.split(' '));
+const [firstName, lastName] = 'Daesung Choi'.split(' ');
+console.log(lastName);
+
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+
+// Padding
+
+const message = 'Go to gate 23';
+console.log(message.padStart(25, '+'));
+
+const maskCreditCard = function (number) {
+    const str = number.toString();
+    const last = str.slice(-4);
+    return last.padStart(str.length, '*');
 }
 
-checkMiddleSeat('11B');
-checkMiddleSeat('11A');
-checkMiddleSeat('11E');
+console.log(maskCreditCard(43825));
+console.log(maskCreditCard(4214093825));
+console.log(maskCreditCard(3240309854290384));
