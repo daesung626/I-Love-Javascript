@@ -687,27 +687,54 @@ GOOD LUCK 😀
 // greeterHey('Jonas');
 // greeterHey('Daesung Choi');
 
-const koreanAir = {
-    airline: 'Korean Air',
-    iataCode: 'KA',
-    bookings: [],
-    book(flightNum, name) {
-        console.log(`${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`)
-        this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name })
-    }
-}
+// const koreanAir = {
+//     airline: 'Korean Air',
+//     iataCode: 'KA',
+//     bookings: [],
+//     book(flightNum, name) {
+//         console.log(`${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`)
+//         this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name })
+//     }
+// }
 
-koreanAir.book(249, 'Daesung Choi');
-console.log(koreanAir);
+// koreanAir.book(249, 'Daesung Choi');
+// console.log(koreanAir);
 
-const asiana = {
-    name: 'Asiana',
-    iataCode: 'AS',
-    bookings: [],
+// const asiana = {
+//     name: 'Asiana',
+//     iataCode: 'AS',
+//     bookings: [],
 
-}
+// }
 
-const book = koreanAir.book;
+// const book = koreanAir.book;
 
-book.call(asiana, 23, 'Daesung Choi');
-console.log(asiana);
+// book.call(asiana, 23, 'Daesung Choi');
+// console.log(asiana);
+
+/**************
+ * Closures
+ */
+
+// let f;
+
+// const g = function () {
+//     const a = 23;
+//     f = function () {
+//         console.log(a * 2);
+//     }
+// }
+
+// const h = function () {
+//     const b = 777;
+//     f = function () {
+//         console.log(b * 2);
+//     }
+// }
+
+// g();
+// f();
+
+// // Re-assign
+// h();
+// f();
