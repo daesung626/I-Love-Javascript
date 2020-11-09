@@ -608,24 +608,43 @@ GOOD LUCK 😀
 
 // Split and joint
 
-console.log('Daesung Choi'.split(' '));
-const [firstName, lastName] = 'Daesung Choi'.split(' ');
-console.log(lastName);
+// console.log('Daesung Choi'.split(' '));
+// const [firstName, lastName] = 'Daesung Choi'.split(' ');
+// console.log(lastName);
 
-const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
-console.log(newName);
+// const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+// console.log(newName);
 
 // Padding
 
-const message = 'Go to gate 23';
-console.log(message.padStart(25, '+'));
+// const message = 'Go to gate 23';
+// console.log(message.padStart(25, '+'));
 
-const maskCreditCard = function (number) {
-    const str = number.toString();
-    const last = str.slice(-4);
-    return last.padStart(str.length, '*');
+// const maskCreditCard = function (number) {
+//     const str = number.toString();
+//     const last = str.slice(-4);
+//     return last.padStart(str.length, '*');
+// }
+
+// console.log(maskCreditCard(43825));
+// console.log(maskCreditCard(4214093825));
+// console.log(maskCreditCard(3240309854290384));
+
+/***************
+ * Functions
+ */
+
+const bookings = []
+
+const createBooking = function (flightNum, numPassengers = 1, price = 199) {
+    const booking = {
+        flightNum,
+        numPassengers,
+        price
+    }
+    console.log(booking);
+    bookings.push(booking);
 }
 
-console.log(maskCreditCard(43825));
-console.log(maskCreditCard(4214093825));
-console.log(maskCreditCard(3240309854290384));
+createBooking('LH123');
+createBooking('LH123', 2, 800);
