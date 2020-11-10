@@ -738,3 +738,26 @@ GOOD LUCK 😀
 // // Re-assign
 // h();
 // f();
+
+/************
+ * For each
+ */
+
+// movements.forEach(function (mov, i, arr) {
+//     if (mov > 0) {
+//         console.log(`Movement ${i + 1}: You deposited ${mov}`);
+//     } else {
+//         console.log(`Movement ${i + 1}: You withdrew ${Math.abs(mov)}`)
+//     }
+// })
+
+// Map
+// const currencies = new Map([
+//     ['USD', 'United States dollar'],
+//     ['EUR', 'Euro'],
+//     ['GBP', 'Pund sterling'],
+// ])
+
+// currencies.forEach(function (value, key, map) {
+//     console.log(`${key}: ${value}`);
+// })
