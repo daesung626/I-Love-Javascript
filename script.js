@@ -64,7 +64,6 @@
 // newArr.unshift(0);
 // newArr.shift();
 
-
 // console.log(newArr);
 
 /***********************
@@ -283,7 +282,6 @@
 
 // mike.calcAge = john.calcAge;
 // mike.calcAge();
-
 
 /***********
  * Destructuring arrays
@@ -509,7 +507,6 @@ console.log(scorers);
 // console.log(rest);
 
 // console.log(rest.get('name'));
-
 
 /************
  * What data structure do i use?
@@ -761,3 +758,29 @@ GOOD LUCK 😀
 // currencies.forEach(function (value, key, map) {
 //     console.log(`${key}: ${value}`);
 // })
+
+/*************
+ * Dates
+ */
+
+// const now = new Date();
+// console.log(now);
+
+/************
+ * Timers
+ */
+
+// const ingredients = ['pinapples', 'sausages'];
+// const pizzaTimer = setTimeout(
+//   (one, two) => console.log(`Here is your pizza with ${one} and ${two}`),
+//   3000,
+//   ...ingredients
+// );
+// console.log('Waiting...');
+
+// if (ingredients.includes('spinach')) clearTimeout(pizzaTimer);
+
+// setInterval(function () {
+//   const now = new Date();
+//   console.log(now);
+// }, 1000);
