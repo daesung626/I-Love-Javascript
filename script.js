@@ -784,3 +784,24 @@ GOOD LUCK 😀
 //   const now = new Date();
 //   console.log(now);
 // }, 1000);
+
+/*************
+ * OOP
+ */
+
+const Person = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+
+// 1. New {} is created
+// 2. Funtionn is called, this = {}
+// 3. {} linked to prototype
+// 4. Funtion automatically return {}
+const daesung = new Person('Daesung', 1997);
+
+Person.prototype.calcAge = function () {
+  console.log(2037 - this.birthYear);
+};
+
+daesung.calcAge();
