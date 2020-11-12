@@ -785,23 +785,142 @@ GOOD LUCK 😀
 //   console.log(now);
 // }, 1000);
 
-/*************
+/***********************************
  * OOP
  */
 
-const Person = function (firstName, birthYear) {
-  this.firstName = firstName;
-  this.birthYear = birthYear;
-};
+// const Person = function (firstName, birthYear) {
+//   this.firstName = firstName;
+//   this.birthYear = birthYear;
+// };
 
 // 1. New {} is created
 // 2. Funtionn is called, this = {}
 // 3. {} linked to prototype
 // 4. Funtion automatically return {}
-const daesung = new Person('Daesung', 1997);
+// const daesung = new Person('Daesung', 1997);
 
-Person.prototype.calcAge = function () {
-  console.log(2037 - this.birthYear);
-};
+// Person.prototype.calcAge = function () {
+//   console.log(2037 - this.birthYear);
+// };
 
-daesung.calcAge();
+// daesung.calcAge();
+
+// Getter and setters
+
+// const account = {
+//   owner: 'Daesung',
+//   transactions: [100, 150, 80, 25],
+
+//   get latest() {
+//     return this.movements.slice(-1).pop();
+//   },
+
+//   set latest(mov) {
+//     this.movements.push(mov);
+//   },
+// };
+
+// console.log(account.latest);
+// account.latest = 50;
+// connsole.log(account.movements);
+
+/*******************
+ * Challenge 14.3
+ */
+
+// const Car = function (make, speed) {
+//   this.make = make;
+//   this.speed = speed;
+// };
+
+// Car.prototype.accelerate = function () {
+//   this.speed += 10;
+//   console.log(`${this.make} is going at ${this.speed}`);
+// };
+
+// Car.prototype.brake = function () {
+//   this.speed -= 5;
+//   console.log(`${this.make} is going at ${this.speed}`);
+// };
+
+// const EV = function (make, speed, charge) {
+//   Car.call(this, make, speed);
+//   this.charge = charge;
+// };
+
+// EV.prototype = Object.create(Car.prototype);
+
+// Overrides the parent accelerate
+// EV.prototype.accelerate = function () {
+//   this.speed += 20;
+//   this.charge--;
+// };
+
+// EV.prototype.chargeBat = function (chargeTo) {
+//   this.charge = chargeTo;
+// };
+
+// class StudentCl extends PersonCl {
+//   constructor(fullName, birthYear, course) {
+//     super(fullName, birthYear);
+//     this.course = course;
+//   }
+
+//   introduce() {
+//     console.log('Introduce');
+//   }
+// }
+
+// const daesung = new StudentCl('Daesung Choi', 1997, 'Computer Science');
+
+// Classes
+
+class Account {
+  // Public fields
+  locale = navigator.language;
+
+  // Private fields
+  #movements = [];
+  #pin;
+
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this.#pin = pin;
+    // this.movements = [];
+    // this.locale = navigator.language;
+
+    console.log(`Thanks for opening an account, ${owner}`);
+  }
+
+  // Public methods
+  // Public interface
+  deposit(val) {
+    this.#movements.push(val);
+    return this;
+  }
+
+  withdraw(val) {
+    this.deposit(-val);
+    return this;
+  }
+
+  requestLoan(val) {
+    if (this['__#32371@#approveLoan'](val)) {
+      this.deposit(val);
+      console.log('Loan approved');
+    }
+  }
+
+  // Private methods
+  #approveLoan(val) {
+    return true;
+  }
+}
+
+const acc1 = new Account('Daesung', 'USD', 1111);
+
+// Chaining
+
+acc1.deposit(300).withdraw(500).withdraw(100).deposit(2400);
