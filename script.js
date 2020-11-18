@@ -891,7 +891,7 @@ class Account {
     // this.movements = [];
     // this.locale = navigator.language;
 
-    console.log(`Thanks for opening an account, ${owner}`);
+    // console.log(`Thanks for opening an account, ${owner}`);
   }
 
   // Public methods
@@ -909,7 +909,7 @@ class Account {
   requestLoan(val) {
     if (this['__#32371@#approveLoan'](val)) {
       this.deposit(val);
-      console.log('Loan approved');
+      // console.log('Loan approved');
     }
   }
 
@@ -924,3 +924,77 @@ const acc1 = new Account('Daesung', 'USD', 1111);
 // Chaining
 
 acc1.deposit(300).withdraw(500).withdraw(100).deposit(2400);
+
+/*******************
+ * Async Js
+ */
+
+// const getCountryData = function (country) {
+//   fetch(`https://restcountries.eu/rest/v2/name/${country}`)
+//     .then(function (response) {
+//       return response.json();
+//     })
+//     .then(function (data) {
+//       console.log(data);
+//     });
+// };
+
+// Using arrow functions
+// const getCountryData = function (country) {
+//   fetch(`https://restcountries.eu/rest/v2/name/${country}`)
+//     .then(response => response.json())
+//     .then(data => console.log(data));
+// };
+
+// Chaining
+// const getCountryData = function (country) {
+//   fetch(`https://restcountries.eu/rest/v2/name/${country}`)
+//     .then(response => response.json())
+//     .then(data => {
+//       console.log(data);
+//       const neighbor = data[0].borders[0];
+
+//       return fetch(`https://restcountries.eu/rest/v2/alpha/${neighbor}`);
+//     })
+//     .then(response => response.json())
+//     .then(data => console.log(data));
+// };
+
+// getCountryData('portugal');
+
+// Error handling and finally
+
+// const getCountryData = function (country) {
+//   fetch(`https://restcountries.eu/rest/v2/name/${country}`)
+//     .then(response => response.json())
+//     .then(data => {
+//       console.log(data);
+//       const neighbor = data[0].borders[0];
+
+//       return fetch(`https://restcountries.eu/rest/v2/alpha/${neighbor}`);
+//     })
+//     .then(response => response.json())
+//     .then(data => console.log(data))
+//     .catch(err => console.log(err))
+//     .finally(() => {
+//       console.log('Finally');
+//     });
+// };
+
+// getCountryData('usa');
+
+// Challenge 16.1
+
+const whereAmI = function (lat, lng) {
+  fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
+    .then(res => {
+      if (!res.ok) throw new Error(`Problem with geocoding ${res.status}`);
+      return res.json();
+    })
+    .then(data => console.log(`You are in ${data.region}, ${data.country}.`))
+    .catch(err => console.error(err));
+};
+
+whereAmI(52.508, 13.381);
+whereAmI(19.037, 72.873);
+whereAmI(-33.933, 18.474);
